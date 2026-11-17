@@ -1,0 +1,7 @@
+#служебные папки студии и сборки
+.vs/
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+TestResults/
