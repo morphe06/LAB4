@@ -5,8 +5,59 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_PLINQ"
         mc:Ignorable="d"
-        Title="Балдина Анастасия Романовна, 3-47" Height="450" Width="800">
+        Title="Балдина Анастасия Романовна, 3-47" Height="660" Width="800">
     <Grid>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="0">Размер массива N</Label>
+        <TextBox Name="tbCount" Grid.Row="0" Margin ="0 5 0 5" Grid.Column="1">1000000</TextBox>
+        <Label Grid.Row="1" Grid.Column="0">Числа от</Label>
+        <TextBox Name="tbMin" Grid.Row="1" Margin ="0 5 0 5" Grid.Column="1">-500000</TextBox>
+        <Label Grid.Row="2" Grid.Column="0">Числа до</Label>
+        <TextBox Name="tbMax" Grid.Row="2" Margin ="0 5 0 5" Grid.Column="1">500000</TextBox>
+        <Button Name="btGenerate" Grid.Row="3" Grid.Column="1" Click="btGenerate_Click">Создать массив</Button>
+        <Label Grid.Row="4" Grid.Column="0">Создано</Label>
+        <TextBlock Name="tbArray" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
+        <!-- лаб. 4: выбор запроса и LINQ или PLINQ -->
+        <Label Grid.Row="5" Grid.Column="0">Запрос</Label>
+        <ComboBox Name="cbQuery" Grid.Row="5" Grid.Column="1" Margin ="0 5 0 5" SelectedIndex="0">
+            <ComboBoxItem>Четные числа</ComboBoxItem>
+            <ComboBoxItem>Нечетные числа</ComboBoxItem>
+            <ComboBoxItem>Сумма первой и последней цифры равна 6</ComboBoxItem>
+            <ComboBoxItem>Содержат комбинацию цифр 666</ComboBoxItem>
+        </ComboBox>
+        <Label Grid.Row="6" Grid.Column="0">Способ</Label>
+        <StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+            <RadioButton Name="rbSequential" IsChecked="True" Margin="0 0 20 0">LINQ</RadioButton>
+            <RadioButton Name="rbParallel">PLINQ</RadioButton>
+        </StackPanel>
+        <Button Name="btRun" Grid.Row="7" Grid.Column="1" Margin="0 5 0 0" Click="btRun_Click">Выполнить</Button>
+        <Label Grid.Row="8" Grid.Column="0">Найдено</Label>
+        <TextBlock Name="tbFound" Grid.Row="8" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
+        <Label Grid.Row="9" Grid.Column="0">Время</Label>
+        <TextBlock Name="tbTime" Grid.Row="9" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
+        <Button Name="btCompare" Grid.Row="10" Grid.Column="1" Margin="0 10 0 5" Click="btCompare_Click">Сравнить время LINQ и PLINQ</Button>
+        <Label Grid.Row="11" Grid.Column="0">Сравнение</Label>
+        <TextBlock Name="tbCompare" Grid.Row="11" Grid.Column="1" Margin="0 5 0 0" TextWrapping="Wrap"></TextBlock>
+        <!-- список найденных чисел -->
+        <Label Grid.Row="12" Grid.Column="0" VerticalAlignment="Top">Числа группы</Label>
+        <ListBox Name="lbNumbers" Grid.Row="12" Grid.Column="1" Margin="0 5 0 5"></ListBox>
     </Grid>
 </Window>
