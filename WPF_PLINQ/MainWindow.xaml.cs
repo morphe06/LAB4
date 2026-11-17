@@ -132,6 +132,8 @@ namespace WPF_PLINQ
         //итог сравнения, tLinq / tPlinq больше 1 значит PLINQ быстрее
         private string Verdict(double tLinq, double tPlinq)
         {
+            if (tLinq == 0 || tPlinq == 0)
+                return "одно из времен 0 мс, отношение не считается"; //на ноль не делим
             double ratio = tLinq / tPlinq;
             if (Math.Round(ratio, 1) == 1.0) //на экране все равно 1,0
                 return $"LINQ/PLINQ = {ratio:F1}, разницы нет";
